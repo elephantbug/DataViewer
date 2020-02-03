@@ -171,6 +171,31 @@ namespace DataViewer
             }
         }
 
+        private void SortByNameButton_Click(object sender, RoutedEventArgs e)
+        {
+            CancelEdit();
+
+            TableView<Target> targets = SampleData.Instance.Targets;
+
+            using (var deferer = targets.DeferRefresh()) //to prevent multiple refreshes
+            {
+                ListSortDirection direction = ListSortDirection.Descending;
+
+                if (targets.SortDescriptions.Count > 0)
+                {
+                    if (targets.SortDescriptions[0].Direction == ListSortDirection.Descending)
+                    {
+                        direction = ListSortDirection.Ascending;
+                    }
+
+                    targets.SortDescriptions.Clear();
+                }
+
+                targets.SortDescriptions.Add(new SortDescription("Name", direction));
+                targets.SortDescriptions.Add(new SortDescription("Id", ListSortDirection.Ascending));
+            }
+        }
+
         private void FilterByCheckButton_Click(object sender, RoutedEventArgs e)
         {
             CancelEdit();

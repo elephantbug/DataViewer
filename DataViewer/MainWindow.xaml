@@ -50,6 +50,7 @@
             <Button Content="Detach" Click="DetachButton_Click" Margin="5"/>
             <Button Content="Sort by Id" Click="SortButton_Click" Margin="5"/>
             <Button Content="Sort by Check" Click="SortByCheckButton_Click" Margin="5"/>
+            <Button Content="Sort by Name" Click="SortByNameButton_Click" Margin="5"/>
             <Button Content="Filter by Check" Click="FilterByCheckButton_Click" Margin="5"/>
             <Button Content="Uncheck all" Click="UncheckAllButton_Click" Margin="5"/>
             <Button Content="Test" Click="TestButton_Click" Margin="5"/>
