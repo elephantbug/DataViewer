@@ -13,7 +13,8 @@ namespace DataViewer
         Own,
         Enemy
     }
-    
+
+    [Serializable]
     public class Target : Entity
     {
         public Target()

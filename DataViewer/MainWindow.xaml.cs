@@ -124,6 +124,8 @@ namespace DataViewer
 
         private void SortButton_Click(object sender, RoutedEventArgs e)
         {
+            CancelEdit();
+
             TableView<Target> targets = SampleData.Instance.Targets;
 
             using (var deferer = targets.DeferRefresh()) //to prevent multiple refreshes
@@ -146,6 +148,8 @@ namespace DataViewer
 
         private void SortByCheckButton_Click(object sender, RoutedEventArgs e)
         {
+            CancelEdit();
+
             TableView<Target> targets = SampleData.Instance.Targets;
 
             using (var deferer = targets.DeferRefresh()) //to prevent multiple refreshes
@@ -169,6 +173,8 @@ namespace DataViewer
 
         private void FilterByCheckButton_Click(object sender, RoutedEventArgs e)
         {
+            CancelEdit();
+
             TableView<Target> targets = SampleData.Instance.Targets;
 
             using (var deferer = targets.DeferRefresh()) //to prevent multiple refreshes
@@ -233,6 +239,17 @@ namespace DataViewer
                 {
                     Name = String.Format("new-target-{0}", id)
                 });
+        }
+
+        private void CancelEdit()
+        {
+            TableView<Target> targets = SampleData.Instance.Targets;
+
+            //targets.CancelNew();
+            if (targets.IsEditingItem)
+            {
+                targets.CancelEdit();
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ namespace DataEngine
         void Save(Dictionary<string, object> changed_properties);
     }
 
+    [Serializable]
     public abstract class Entity : NotificationObject, IEntity, ITransactObject, IComparable, ICloneable
     {
         //used by EntityTable to eliminate the need of allocation additinal memory for SingleLink<Entity>
